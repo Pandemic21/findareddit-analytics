@@ -4,17 +4,11 @@ import time
 path = '/home/pandemic/Documents/scripts/findareddit/'
 conn = sqlite3.connect(path+'far_analytics.db')
 c = conn.cursor()
+
 print "Getting mentions..."
 c.execute("SELECT * FROM mentions ORDER BY count DESC")
-print "Dropping table..."
-c.execute("DROP TABLE mentions")
-conn.commit()
-print "Creating table..."
-c.execute("CREATE TABLE mentions (subreddit text, count text)")
-conn.commit()
 
 results = c.fetchall()
-
 k = 0
 i = 0
 report = ''
@@ -47,3 +41,11 @@ f = open(path+filename, "a")
 f.write(report)
 f.close()
 
+droptable = raw_input("Delete old data (y/n)? ")
+if droptable.upper() == "Y":
+	print "Dropping table..."
+	c.execute("DROP TABLE mentions")
+	conn.commit()
+	print "Creating table..."
+	c.execute("CREATE TABLE mentions (subreddit text, count text)")
+	conn.commit()

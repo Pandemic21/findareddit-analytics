@@ -1,7 +1,7 @@
 import sqlite3
 import time
 
-path = '/home/pandemic/Documents/scripts/findareddit/'
+path = 'c:\\users\\caldw\\desktop\\'
 conn = sqlite3.connect(path+'far_analytics.db')
 c = conn.cursor()
 
@@ -21,10 +21,10 @@ while k < len(results):
 		i = i + 1
 	
 	count = results[k][1]
-	if count == "1":
-		report = report + count + " time:\n\n"
+	if count == 1:
+		report = report + str(count) + " time:\n\n"
 	else:
-		report = report + count + " times:\n\n"
+		report = report + str(count) + " times:\n\n"
 
 	while k < i:
 		if k + 1 < i:

@@ -43,7 +43,7 @@ def gen_log(data):
 LOGFILE="/home/pandemic/Documents/scripts/far_comments.log"
 times = check_args()
 REPORTFILE="/home/pandemic/Documents/scripts/comments_report_" + str(time.strftime("%Y-%m-%d")) + "_" + str(time.strftime("%H-%M-%S")) + ".txt"
-SUBMISSION_TITLE="Commentless submissions between " + time.strftime('%m-%d-%Y', time.gmtime(lowest)) + " and " + time.strftime('%m-%d-%Y', time.gmtime(highest))
+SUBMISSION_TITLE="Commentless submissions between " + time.strftime('%m-%d-%Y', time.gmtime(times[0])) + " and " + time.strftime('%m-%d-%Y', time.gmtime(times[1]))
 USERNAME=""
 PASSWORD=""
 r = praw.Reddit('findareddit comment checker /u/Pandemic21')

@@ -61,6 +61,7 @@ for result in results:
 	total = total + 1
 	comments = result.comments
 	if len(comments) > 0: continue
+	if s.stickied: continue
 	commentless.append(result)
 	unanswered = unanswered + 1
 
